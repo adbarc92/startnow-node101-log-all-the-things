@@ -42,7 +42,7 @@ res.status( 200 ).send( 'ok' ); // Send this message to agents
 // Return a JSON object containing the log data when accessing logs path
 
 app.get( '/logs', ( req, res ) => {
-  fs.readFile( './log.csv', ( err, resData ) => {
+  fs.readFile( './log.csv', 'utf8', ( err, resData ) => {
     if( err ) throw err;
     var bufferString = resData.toString();
     var logArr = bufferString.split( '\n' );
